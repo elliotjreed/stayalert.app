@@ -1,0 +1,24 @@
+version: "3.6"
+
+services:
+  stay-alert-nginx:
+    image: elliotjreed/stay-alert-nginx
+    container_name: stay-alert-nginx
+    restart: always
+    networks:
+      - stay-alert
+      - web
+    labels:
+      - "traefik.docker.network=web"
+      - "traefik.enable=true"
+      - "traefik.nonwww.frontend.rule=Host:stayalert.app"
+      - "traefik.www.frontend.rule=Host:www.stayalert.app"
+      - "traefik.protocol=h2c"
+      - "traefik.port=93"
+
+networks:
+  web:
+    external: true
+  stay-alert:
+    name: stay-alert
+

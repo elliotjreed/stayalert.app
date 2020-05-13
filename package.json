@@ -1,0 +1,123 @@
+{
+  "name": "stay-alert",
+  "version": "1.0.0",
+  "description": "StayAlert.app in React",
+  "keywords": [
+    "react",
+    "webpack",
+    "typescript"
+  ],
+  "author": "Elliot J. Reed",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/elliotjreed/stayalert.app.git"
+  },
+  "bugs": {
+    "url": "https://github.com/elliotjreed/stay-alert/issues"
+  },
+  "homepage": "https://github.com/elliotjreed/stay-alert",
+  "scripts": {
+    "clean-dist": "rm -rf -d dist",
+    "start": "webpack-dev-server --config=webpack.dev.js",
+    "build": "yarn run clean-dist && webpack -p --config=webpack.prod.js",
+    "docker": "yarn run test && yarn run lint && yarn run clean-dist && webpack -p --config=webpack.prod.js && docker build -t elliotjreed/stay-alert-nginx . --no-cache && docker push elliotjreed/stay-alert-nginx",
+    "lint": "yarn run lint:js && yarn run lint:css",
+    "lint:js": "eslint --ext .ts --ext .js --ext .tsx './src/'",
+    "lint:css": "stylelint './src/**/*.scss' --syntax scss",
+    "test": "jest"
+  },
+  "dependencies": {
+    "bulma": "^0.8",
+    "dom-to-image-more": "^2.8.0",
+    "history": "^4.10",
+    "react": "^16.13",
+    "react-dom": "^16.13",
+    "react-ga": "^2.7.0",
+    "react-helmet": "^6.0",
+    "react-router-dom": "^5.2",
+    "react-spring": "^8.0",
+    "webpack-pwa-manifest": "^4.2",
+    "workbox-webpack-plugin": "^5.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.8",
+    "@babel/core": "^7.9",
+    "@babel/preset-env": "^7.9",
+    "@babel/preset-react": "^7.9",
+    "@types/enzyme": "^3.10",
+    "@types/enzyme-adapter-react-16": "^1.0",
+    "@types/jest": "^25.1",
+    "@types/node": "^13.9",
+    "@types/react": "^16.9",
+    "@types/react-dom": "^16.9",
+    "@typescript-eslint/eslint-plugin": "^2.24",
+    "@typescript-eslint/parser": "^2.24",
+    "awesome-typescript-loader": "^5.2",
+    "babel-jest": "^26.0",
+    "babel-loader": "^8.1",
+    "copy-webpack-plugin": "^5.1",
+    "css-loader": "^3.4",
+    "enzyme": "^3.11",
+    "enzyme-adapter-react-16": "^1.15",
+    "eslint": "^7.0",
+    "eslint-config-prettier": "^6.10",
+    "eslint-plugin-prettier": "^3.1",
+    "eslint-plugin-react": "^7.19",
+    "html-webpack-plugin": "^4.0",
+    "image-webpack-loader": "^6.0",
+    "jest": "^26.0",
+    "jest-enzyme": "^7.1",
+    "mini-css-extract-plugin": "^0.9",
+    "node-sass": "^4.13",
+    "prettier": "^2.0",
+    "purgecss-webpack-plugin": "^2.1",
+    "sass-loader": "^8.0",
+    "source-map-loader": "^0.2",
+    "style-loader": "^1.1",
+    "stylelint": "^13.2",
+    "stylelint-config-recommended-scss": "^4.2",
+    "stylelint-config-standard": "^20.0",
+    "stylelint-scss": "^3.16",
+    "terser-webpack-plugin": "^3.0",
+    "ts-jest": "^25.2",
+    "typescript": "^3.8",
+    "webpack": "^4.42",
+    "webpack-cli": "^3.3",
+    "webpack-dev-middleware": "^3.7",
+    "webpack-dev-server": "^3.10",
+    "webpack-merge": "^4.2"
+  },
+  "jest": {
+    "preset": "ts-jest",
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest",
+      "^.+\\.js?$": "babel-jest"
+    },
+    "moduleNameMapper": {
+      "\\.(css|scss)$": "<rootDir>/tests/stylesMock.js",
+      "\\.(svg)$": "<rootDir>/tests/svgMock.js"
+    },
+    "testMatch": [
+      "<rootDir>/tests/**/*.test.tsx"
+    ],
+    "setupFilesAfterEnv": [
+      "<rootDir>/node_modules/jest-enzyme/lib/index.js"
+    ],
+    "setupFiles": [
+      "<rootDir>/tests/setupJest.js"
+    ],
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+      "src/components/**/*.{ts,tsx}",
+      "!tests/**/*.test.{ts,tsx}",
+      "!**/node_modules/**"
+    ],
+    "coverageReporters": [
+      "html",
+      "text"
+    ],
+    "resetModules": true,
+    "restoreMocks": true
+  }
+}
