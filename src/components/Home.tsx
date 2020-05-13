@@ -40,9 +40,9 @@ const Home = (): JSX.Element => {
         />
       </Helmet>
 
-      <animated.main className="container" style={props}>
+      <animated.main className="main-content" style={props}>
         <div className="columns is-multiline">
-          <div className="column is-12 about-me">
+          <div className="column is-12">
             <h2 className="title has-text-centered section-title">Stay alert. Control the virus. Save lives.</h2>
             <h3 className="subtitle has-text-centered">Create your own &ldquo;Stay alert&rdquo; poster</h3>
             <p className="has-text-centered">
@@ -50,9 +50,7 @@ const Home = (): JSX.Element => {
               the lines below, and click the <strong>download</strong> button when you&apos;re done.
             </p>
           </div>
-        </div>
-        <div className="columns">
-          <div className="column is-7-tablet">
+          <div className="column is-7-tablet is-5-fullhd is-offset-1-fullhd">
             <YellowBox
               lineOne={lineOne}
               lineTwo={lineTwo}
@@ -60,17 +58,17 @@ const Home = (): JSX.Element => {
               contentContainerRef={contentContainerRef}
             />
           </div>
-          <div className="column is-5-tablet">
+          <div className="column is-5-tablet is-5-fullhd">
             <div className="field">
               <label htmlFor="line1" className="label">
                 Line 1
               </label>
               <div className="control">
-                <textarea
+                <input
                   id="line1"
-                  className="textarea"
+                  className="input is-medium"
                   placeholder="Stay alert."
-                  onChange={(event: React.ChangeEvent<HTMLTextAreaElement>): void => setLineOne(event.target.value)}
+                  onChange={(event: React.ChangeEvent<HTMLInputElement>): void => setLineOne(event.target.value)}
                   onBlur={handleMemeGeneration}
                 />
               </div>
@@ -80,11 +78,11 @@ const Home = (): JSX.Element => {
                 Line 2
               </label>
               <div className="control">
-                <textarea
+                <input
                   id="line2"
-                  className="textarea"
+                  className="input is-medium"
                   placeholder="Control the virus."
-                  onChange={(event: React.ChangeEvent<HTMLTextAreaElement>): void => setLineTwo(event.target.value)}
+                  onChange={(event: React.ChangeEvent<HTMLInputElement>): void => setLineTwo(event.target.value)}
                   onBlur={handleMemeGeneration}
                 />
               </div>
@@ -94,11 +92,11 @@ const Home = (): JSX.Element => {
                 Line 3
               </label>
               <div className="control">
-                <textarea
+                <input
                   id="line3"
-                  className="textarea"
+                  className="input is-medium"
                   placeholder="Save lives."
-                  onChange={(event: React.ChangeEvent<HTMLTextAreaElement>): void => setLineThree(event.target.value)}
+                  onChange={(event: React.ChangeEvent<HTMLInputElement>): void => setLineThree(event.target.value)}
                   onBlur={handleMemeGeneration}
                 />
               </div>
