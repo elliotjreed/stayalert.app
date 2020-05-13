@@ -60,44 +60,35 @@ const Home = (): JSX.Element => {
           </div>
           <div className="column is-5-tablet is-5-fullhd">
             <div className="field">
-              <label htmlFor="line1" className="label">
-                Line 1
-              </label>
               <div className="control">
                 <input
-                  id="line1"
                   className="input is-medium"
                   placeholder="Stay alert."
                   onChange={(event: React.ChangeEvent<HTMLInputElement>): void => setLineOne(event.target.value)}
                   onBlur={handleMemeGeneration}
+                  title="First line"
                 />
               </div>
             </div>
             <div className="field">
-              <label htmlFor="line2" className="label">
-                Line 2
-              </label>
               <div className="control">
                 <input
-                  id="line2"
                   className="input is-medium"
                   placeholder="Control the virus."
                   onChange={(event: React.ChangeEvent<HTMLInputElement>): void => setLineTwo(event.target.value)}
                   onBlur={handleMemeGeneration}
+                  title="Second line"
                 />
               </div>
             </div>
             <div className="field">
-              <label htmlFor="line3" className="label">
-                Line 3
-              </label>
               <div className="control">
                 <input
-                  id="line3"
                   className="input is-medium"
                   placeholder="Save lives."
                   onChange={(event: React.ChangeEvent<HTMLInputElement>): void => setLineThree(event.target.value)}
                   onBlur={handleMemeGeneration}
+                  title="Third line"
                 />
               </div>
             </div>
