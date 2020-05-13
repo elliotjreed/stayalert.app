@@ -9,24 +9,26 @@ import { YellowBox } from "./YellowBox";
 import "./../assets/scss/App.scss";
 
 const Home = (): JSX.Element => {
-  useEffect((): void => {
-    ReactGA.pageview(window.location.pathname + location.search);
-  }, []);
-
   const props = useSpring({ opacity: 1, from: { opacity: 0 } });
   const { x } = useSpring({ from: { x: 0 }, x: 1, config: { duration: 1000 } });
 
   const [lineOne, setLineOne] = useState("STAY ALERT.");
   const [lineTwo, setLineTwo] = useState("CONTROL THE VIRUS.");
   const [lineThree, setLineThree] = useState("SAVE LIVES.");
+  const [downloadUrl, setDownloadUrl] = useState("");
 
   const contentContainerRef = useRef<HTMLElement | null>(null);
 
   const handleMemeGeneration = (): void => {
     domtoimage.toPng(contentContainerRef.current).then((dataUrl) => {
-      window.location.href = dataUrl;
+      setDownloadUrl(dataUrl);
     });
   };
+
+  useEffect((): void => {
+    ReactGA.pageview(window.location.pathname + location.search);
+    handleMemeGeneration();
+  }, []);
 
   return (
     <>
@@ -69,6 +71,7 @@ const Home = (): JSX.Element => {
                   className="textarea"
                   placeholder="Stay alert."
                   onChange={(event: React.ChangeEvent<HTMLTextAreaElement>): void => setLineOne(event.target.value)}
+                  onBlur={handleMemeGeneration}
                 />
               </div>
             </div>
@@ -82,6 +85,7 @@ const Home = (): JSX.Element => {
                   className="textarea"
                   placeholder="Control the virus."
                   onChange={(event: React.ChangeEvent<HTMLTextAreaElement>): void => setLineTwo(event.target.value)}
+                  onBlur={handleMemeGeneration}
                 />
               </div>
             </div>
@@ -95,10 +99,11 @@ const Home = (): JSX.Element => {
                   className="textarea"
                   placeholder="Save lives."
                   onChange={(event: React.ChangeEvent<HTMLTextAreaElement>): void => setLineThree(event.target.value)}
+                  onBlur={handleMemeGeneration}
                 />
               </div>
             </div>
-            <button className="button is-medium submit-button" onClick={handleMemeGeneration}>
+            <a download="stayalert.png" className="button is-medium submit-button" href={downloadUrl}>
               <animated.div
                 style={{
                   opacity: x.interpolate({ range: [0, 1], output: [0.3, 1] }),
@@ -112,7 +117,7 @@ const Home = (): JSX.Element => {
               >
                 Download
               </animated.div>
-            </button>
+            </a>
           </div>
         </div>
       </animated.main>
