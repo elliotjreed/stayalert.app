@@ -33,7 +33,7 @@ const Home = (): JSX.Element => {
   return (
     <>
       <Helmet>
-        <title>{lineOne + " " + lineTwo + " " + lineThree}</title>
+        <title>Stay alert. Control the virus. Save lives. | Coronavirus Meme Generator</title>
         <meta
           name="description"
           content="Generate your own &ldquo;Stay alert. Control the virus. Save lives.&rdquo; meme or poster."

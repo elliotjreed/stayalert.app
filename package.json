@@ -28,8 +28,12 @@
     "test": "jest"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-free-solid": "^5.0",
+    "@fortawesome/fontawesome-svg-core": "^1.2",
+    "@fortawesome/free-brands-svg-icons": "^5.13",
+    "@fortawesome/react-fontawesome": "^0.1",
     "bulma": "^0.8",
-    "dom-to-image-more": "^2.8.0",
+    "dom-to-image-more": "^2.8",
     "history": "^4.10",
     "react": "^16.13",
     "react-dom": "^16.13",

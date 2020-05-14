@@ -30,7 +30,7 @@ export const TopBar = (): JSX.Element => {
                     .interpolate((x) => `scale(${x})`)
                 }}
               >
-                JOE KOZAK
+                Coronavirus Meme Generator
               </animated.h1>
             </Link>
             <div
@@ -62,12 +62,18 @@ export const TopBar = (): JSX.Element => {
                   <div className="navbar-end">
                     <div className="navbar-item">
                       <Link to="/" className="navbar-item" onClick={(): void => toggleMenu(false)}>
-                        Stay alert.
+                        Stay alert. Control the virus. Save lives.
+                        <br />
+                        <small className="has-text-grey-light">UK Government poster generator</small>
                       </Link>
                     </div>
                     <div className="navbar-item">
-                      <Link to="/about" className="navbar-item" onClick={(): void => toggleMenu(false)}>
-                        About
+                      <Link to="/tweet" className="navbar-item" onClick={(): void => toggleMenu(false)}>
+                        #StayAlert
+                        <br />
+                        <small className="has-text-grey-light">
+                          <em>@10DowningStreet</em> UK Government tweet generator
+                        </small>
                       </Link>
                     </div>
                   </div>
@@ -84,10 +90,10 @@ export const TopBar = (): JSX.Element => {
               <div className="column is-12 hero-menu-desktop has-text-centered">
                 <ul>
                   <li>
-                    <Link to="/">Home</Link>
+                    <Link to="/">Poster Generator</Link>
                   </li>
                   <li>
-                    <Link to="/about">About</Link>
+                    <Link to="/tweet">Tweet Generator</Link>
                   </li>
                 </ul>
               </div>

@@ -13,6 +13,7 @@
 @import "~bulma/sass/form/all";
 @import "spinner";
 @import "yellow_box";
+@import "tweet";
 
 .main-content {
   margin: 1em 1em 0;
@@ -39,7 +40,6 @@
       .hero-menu-desktop {
         line-height: 38px;
         font-weight: 600;
-        text-transform: lowercase;
         letter-spacing: 1px;
         font-size: 1rem;
 
