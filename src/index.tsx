@@ -7,7 +7,20 @@ import "./assets/scss/App.scss";
 
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", (): void => {
-    navigator.serviceWorker.register("/service-worker.js").catch();
+    navigator.serviceWorker
+      .register("/service-worker.js")
+      .then((): void =>
+        console.log(
+          "%cStayAlert.app has been cached into your browser, so it should now work offline for you 😎",
+          "color:green"
+        )
+      )
+      .catch((): void =>
+        console.log(
+          "%cStayAlert.app could not cached into your browser using a Service Worker, so you will probably need to be connected to the internet for this to work.",
+          "color:red"
+        )
+      );
   });
 }
 

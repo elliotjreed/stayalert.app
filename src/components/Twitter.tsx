@@ -5,9 +5,8 @@ import { animated, useSpring } from "react-spring";
 import domtoimage from "dom-to-image-more";
 import * as ReactGA from "react-ga";
 
-import { YellowBox } from "./YellowBox";
-import "./../assets/scss/App.scss";
 import { TweetBox } from "./TweetBox";
+import "./../assets/scss/App.scss";
 
 const Twitter = (): JSX.Element => {
   const props = useSpring({ opacity: 1, from: { opacity: 0 } });
@@ -59,8 +58,8 @@ const Twitter = (): JSX.Element => {
                   className="textarea"
                   placeholder="Stay alert by making your own government tweet."
                   onChange={(event: React.ChangeEvent<HTMLTextAreaElement>): void => setTweet(event.target.value)}
-                  onBlur={handleMemeGeneration}
                   title="Stay alert by making your own government tweet."
+                  onKeyUp={handleMemeGeneration}
                 />
               </div>
             </div>

@@ -65,7 +65,7 @@ const Home = (): JSX.Element => {
                   className="input is-medium"
                   placeholder="Stay alert."
                   onChange={(event: React.ChangeEvent<HTMLInputElement>): void => setLineOne(event.target.value)}
-                  onBlur={handleMemeGeneration}
+                  onKeyUp={handleMemeGeneration}
                   title="First line"
                 />
               </div>
@@ -76,7 +76,7 @@ const Home = (): JSX.Element => {
                   className="input is-medium"
                   placeholder="Control the virus."
                   onChange={(event: React.ChangeEvent<HTMLInputElement>): void => setLineTwo(event.target.value)}
-                  onBlur={handleMemeGeneration}
+                  onKeyUp={handleMemeGeneration}
                   title="Second line"
                 />
               </div>
@@ -87,7 +87,7 @@ const Home = (): JSX.Element => {
                   className="input is-medium"
                   placeholder="Save lives."
                   onChange={(event: React.ChangeEvent<HTMLInputElement>): void => setLineThree(event.target.value)}
-                  onBlur={handleMemeGeneration}
+                  onKeyUp={handleMemeGeneration}
                   title="Third line"
                 />
               </div>

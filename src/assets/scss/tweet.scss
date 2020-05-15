@@ -24,6 +24,7 @@ $family-1: 'Roboto', sans-serif;
       display: flex;
       align-items: center;
       margin-right: 0.5em;
+      width: 2.5em;
     }
 
     .tweet-author {
@@ -31,6 +32,7 @@ $family-1: 'Roboto', sans-serif;
       justify-content: center;
 
       .name {
+        margin-bottom: 1em;
         font-weight: 800;
         transition: color 0.1s;
       }
@@ -55,18 +57,11 @@ $family-1: 'Roboto', sans-serif;
   .tweet-footer {
     .icons {
       margin-top: 0.5em;
-      margin-left: 3em;
 
       .fas {
+        margin-left: 3em;
         color: $light-colour;
-        margin-right: 4rem;
-        transition: color 0.1s;
-
-        .icon-number {
-          font-family: $family-1;
-          font-size: 1rem;
-          font-weight: normal;
-        }
+        transition: color 0.2s;
       }
 
       .fa-reply:hover,
