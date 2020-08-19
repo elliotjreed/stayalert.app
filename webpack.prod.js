@@ -1,4 +1,4 @@
-const merge = require("webpack-merge");
+const { merge } = require("webpack-merge");
 const WebpackPwaManifest = require("webpack-pwa-manifest");
 const { resolve, join } = require("path");
 const glob = require("glob");
@@ -78,7 +78,7 @@ module.exports = merge(commonConfig, {
     new PurgecssPlugin({
       paths: glob.sync(`${PATHS.src}/**/*`, { nodir: true })
     }),
-    new CopyPlugin([{ from: "./assets/static", to: "./" }]),
+    new CopyPlugin({ patterns: [{ from: "./assets/static", to: "./" }] }),
     new WorkboxPlugin.GenerateSW({
       clientsClaim: true,
       skipWaiting: true
